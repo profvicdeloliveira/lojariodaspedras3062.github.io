@@ -1,0 +1,220 @@
+/* =======================================================
+   PALETA PREMIUM E CONFIGURAÇÕES BÁSICAS
+   ======================================================= */
+:root {
+    --bg-profundo: #0A1128;      
+    --bg-secundario: #112140;    
+    --card-glass: rgba(25, 42, 86, 0.6); 
+    --azul-glow: #3A7BD5;        
+    --ouro-metalico: #E6A127;    
+    --verde-neon: #00E676;       
+    --vermelho-nobre: #8B0000;
+    --texto-claro: #F8F9FA;      
+    --texto-mutado: #A0B2C6;     
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Lora', serif; color: var(--texto-claro);
+    background-color: var(--bg-profundo); line-height: 1.8; overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Cinzel', serif; font-weight: 700; }
+a { text-decoration: none; transition: all 0.4s ease; }
+
+/* =======================================================
+   ANIMAÇÕES DE POLIMENTO
+   ======================================================= */
+.reveal { transform: translateY(50px); opacity: 0; transition: all 1s ease-out; }
+.reveal.active { transform: translateY(0); opacity: 1; }
+
+.glow-card { position: relative; overflow: hidden; }
+.glow-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 161, 39, 0.1) 0%, transparent 50%);
+    opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1;
+}
+.glow-card:hover::before { opacity: 1; }
+
+.tech-gold-text {
+    background: linear-gradient(to right, #F5D061, #E6A127, #F5D061);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 2px 10px rgba(230, 161, 39, 0.4)); font-weight: 700; letter-spacing: 2px;
+}
+
+/* =======================================================
+   NAVBAR (CABEÇALHO)
+   ======================================================= */
+#navbar {
+    position: fixed; top: 0; width: 100%;
+    background-color: rgba(10, 17, 40, 0.85); backdrop-filter: blur(15px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 5%; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo-container { display: flex; align-items: center; gap: 15px; }
+.logos-topo { display: flex; align-items: center; }
+.logo-principal { height: 65px; width: auto; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1)); }
+
+.logo-texto h1 { font-size: 20px; margin-bottom: 0px; }
+.logo-texto span { color: var(--texto-mutado); font-size: 11px; font-family: 'Montserrat', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+
+nav { display: flex; align-items: center; gap: 30px; }
+.menu-principal { display: flex; list-style: none; gap: 20px; }
+.menu-principal a { color: var(--texto-claro); font-family: 'Montserrat', sans-serif; font-size: 13px; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
+.menu-principal a:hover { color: var(--ouro-metalico); text-shadow: 0 0 10px rgba(230,161,39,0.5); }
+
+/* =======================================================
+   BOTÕES
+   ======================================================= */
+.btn-acesso-restrito {
+    background-color: transparent; color: var(--texto-claro); padding: 10px 20px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);
+    font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: bold; text-transform: uppercase;
+}
+.btn-acesso-restrito:hover { background-color: var(--texto-claro); color: var(--bg-profundo); box-shadow: 0 0 15px rgba(255,255,255,0.3); }
+
+.btn-primario {
+    display: inline-block; background-color: var(--bg-secundario); color: var(--texto-claro); padding: 15px 35px; border-radius: 4px; border: 1px solid var(--azul-glow);
+    font-family: 'Montserrat', sans-serif; font-weight: bold; text-transform: uppercase; box-shadow: 0 0 15px rgba(58,123,213,0.3); cursor: pointer; position: relative; z-index: 2;
+}
+.btn-primario:hover { background-color: var(--azul-glow); box-shadow: 0 0 25px rgba(58,123,213,0.6); }
+
+.btn-secundario {
+    display: inline-block; background-color: transparent; color: var(--ouro-metalico); padding: 15px 35px; border-radius: 4px; border: 2px solid var(--ouro-metalico);
+    font-family: 'Montserrat', sans-serif; font-weight: bold; text-transform: uppercase; cursor: pointer; position: relative; z-index: 2;
+}
+.btn-secundario:hover { background-color: var(--ouro-metalico); color: var(--bg-profundo); box-shadow: 0 0 20px rgba(230,161,39,0.5); }
+
+/* =======================================================
+   HERO SECTION
+   ======================================================= */
+.hero {
+    height: 100vh; background: radial-gradient(circle at center, var(--bg-secundario) 0%, var(--bg-profundo) 100%);
+    display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; margin-top: 0; position: relative;
+}
+
+.hero-conteudo { max-width: 900px; z-index: 2; margin-top: 60px; }
+.headline { color: var(--texto-claro); font-size: 50px; margin-bottom: 5px; letter-spacing: 2px; }
+.sub-headline { color: var(--texto-mutado); font-size: 20px; margin-bottom: 30px; font-style: italic; font-family: 'Cinzel Decorative', serif; }
+.nome-loja-hero { font-size: 40px; margin-bottom: 30px; line-height: 1.2; }
+.hero-texto { color: var(--texto-mutado); font-size: 18px; margin-bottom: 40px; font-weight: 300; }
+
+.cta-botoes { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
+.lema-maconico { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+.lema-maconico span { color: var(--verde-neon); font-family: 'Montserrat', sans-serif; font-weight: bold; letter-spacing: 3px; font-size: 14px; text-shadow: 0 0 10px rgba(0, 230, 118, 0.4); }
+.acacia-container { animation: pulsar-suave 3s infinite alternate; }
+@keyframes pulsar-suave { 0% { filter: drop-shadow(0 0 5px rgba(0, 230, 118, 0.3)); transform: scale(1); } 100% { filter: drop-shadow(0 0 15px rgba(0, 230, 118, 0.7)); transform: scale(1.05); } }
+
+/* =======================================================
+   FORMATAÇÃO GERAL DE SEÇÕES
+   ======================================================= */
+.titulo-secao { text-align: center; font-size: 36px; color: var(--ouro-metalico); margin-bottom: 10px; padding-top: 80px; text-shadow: 0 0 10px rgba(230,161,39,0.2); }
+.subtitulo-secao { text-align: center; font-family: 'Cinzel Decorative', serif; color: var(--texto-mutado); margin-bottom: 50px; }
+.fundo-branco, .fundo-claro { background-color: var(--bg-profundo); padding-bottom: 80px; }
+
+/* =======================================================
+   APRESENTAÇÃO E NÚMEROS
+   ======================================================= */
+.grid-3-colunas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 80px 5%; background-color: var(--bg-secundario); }
+.coluna { background: var(--card-glass); backdrop-filter: blur(10px); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-top: 2px solid var(--azul-glow); }
+.coluna h3 { color: var(--texto-claro); font-size: 22px; margin-bottom: 15px; }
+.coluna p { color: var(--texto-mutado); }
+.citacao-destaque { color: var(--ouro-metalico); font-family: 'Cinzel Decorative', serif; font-weight: bold; margin: 15px 0; }
+blockquote { font-style: italic; border-left: 4px solid var(--verde-neon); padding-left: 15px; color: var(--texto-claro); opacity: 0.8; }
+
+.numeros-faixa-escura { background: linear-gradient(90deg, #050914 0%, var(--bg-profundo) 50%, #050914 100%); padding: 80px 5%; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.container-numeros { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+.dado h2 { color: var(--ouro-metalico); font-size: 46px; margin-bottom: 5px; text-shadow: 0 0 15px rgba(230,161,39,0.4); }
+.dado p { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: bold; text-transform: uppercase; color: var(--texto-claro); }
+.dado small { color: var(--texto-mutado); font-size: 12px; }
+
+/* =======================================================
+   EVENTOS E DIGNITÁRIOS
+   ======================================================= */
+.grid-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 40px 5% 80px 5%; }
+.card-evento { background: var(--card-glass); backdrop-filter: blur(10px); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid var(--azul-glow); transition: all 0.4s ease; }
+.card-evento:hover { transform: translateY(-10px); border-left-color: var(--verde-neon); box-shadow: 0 10px 30px rgba(0, 230, 118, 0.15); }
+.card-evento p { color: var(--texto-mutado); z-index: 2; position: relative;}
+.data-badge { background-color: rgba(58,123,213,0.2); color: var(--azul-glow); border: 1px solid var(--azul-glow); padding: 5px 10px; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+.card-evento h4 { color: var(--texto-claro); font-size: 20px; margin: 15px 0; z-index: 2; position: relative;}
+
+.grid-dignitarios { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 0 5% 80px 5%; background-color: var(--bg-secundario); padding-top: 40px;}
+.card-dignitario { background: var(--bg-profundo); padding: 30px 20px; text-align: center; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid var(--ouro-metalico); box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: all 0.3s; }
+.card-dignitario:hover { border-top-color: var(--verde-neon); box-shadow: 0 0 20px rgba(0,230,118,0.2); }
+.card-dignitario h3 { color: var(--texto-claro); font-size: 18px; margin-bottom: 5px; z-index: 2; position: relative; }
+.card-dignitario span { color: var(--ouro-metalico); font-family: 'Montserrat', sans-serif; font-size: 12px; text-transform: uppercase; font-weight: bold; z-index: 2; position: relative;}
+
+/* =======================================================
+   FORMULÁRIOS, EMPÓRIO E LOGIN (OS QUE FALTARAM)
+   ======================================================= */
+.form-container { max-width: 700px; margin: 0 auto; padding: 0 20px 80px 20px; }
+form.form-candidato {
+    background: var(--bg-secundario); padding: 40px; border-radius: 8px; 
+    border: 1px solid rgba(255,255,255,0.05); border-top: 3px solid var(--azul-glow);
+}
+form.form-candidato input, form.form-candidato textarea {
+    width: 100%; padding: 15px; margin-bottom: 15px;
+    background-color: rgba(0,0,0,0.4); color: var(--texto-claro);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; font-family: 'Lora', serif; font-size: 16px;
+    transition: all 0.3s ease; position: relative; z-index: 2;
+}
+form.form-candidato input::placeholder, form.form-candidato textarea::placeholder { color: #667; }
+form.form-candidato input:focus, form.form-candidato textarea:focus { 
+    outline: none; border-color: var(--ouro-metalico); 
+    box-shadow: 0 0 15px rgba(230,161,39,0.2); background-color: rgba(0,0,0,0.6); 
+}
+form.form-candidato button { width: 100%; }
+
+.secao-permuta {
+    text-align: center; background: var(--bg-secundario); padding: 50px; border-radius: 8px; max-width: 800px; margin: 0 auto;
+    border: 1px dashed var(--azul-glow); box-shadow: inset 0 0 30px rgba(58,123,213,0.05);
+}
+.secao-permuta h3 { color: var(--ouro-metalico); margin-bottom: 15px; position: relative; z-index: 2;}
+.secao-permuta p { color: var(--texto-mutado); position: relative; z-index: 2;}
+
+.btn-outline {
+    display: inline-block; margin-top: 25px; padding: 15px 30px;
+    border: 1px solid var(--azul-glow); color: var(--azul-glow);
+    font-family: 'Montserrat', sans-serif; font-weight: bold; border-radius: 4px; text-transform: uppercase;
+    position: relative; z-index: 2;
+}
+.btn-outline:hover { background-color: var(--azul-glow); color: var(--texto-claro); box-shadow: 0 0 20px rgba(58,123,213,0.5); }
+
+.area-restrita { background-color: #050914; padding: 100px 20px; display: flex; justify-content: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.login-box { background: var(--bg-secundario); padding: 40px; border-radius: 8px; max-width: 400px; width: 100%; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.05); border-top: 4px solid var(--vermelho-nobre); }
+.login-box h2 { color: var(--texto-claro); margin-bottom: 10px; z-index: 2; position: relative;}
+.login-box p { font-family: 'Cinzel Decorative', serif; color: var(--texto-mutado); margin-bottom: 25px; z-index: 2; position: relative;}
+.btn-acesso { background-color: var(--vermelho-nobre); color: var(--texto-claro); padding: 15px; width: 100%; border: none; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-weight: bold; text-transform: uppercase; cursor: pointer; z-index: 2; position: relative;}
+.btn-acesso:hover { background-color: var(--ouro-metalico); color: var(--bg-profundo); box-shadow: 0 0 15px rgba(230,161,39,0.4); }
+
+/* =======================================================
+   FOOTER
+   ======================================================= */
+footer { background-color: #050914; color: var(--texto-mutado); padding: 60px 5% 30px 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-logos { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 40px; }
+.logo-potencia { height: 65px; width: auto; opacity: 0.6; filter: drop-shadow(0 0 5px rgba(255,255,255,0.1)) grayscale(50%); transition: all 0.4s ease; }
+.logo-potencia:hover { opacity: 1; filter: drop-shadow(0 0 15px rgba(255,255,255,0.5)) grayscale(0%); transform: scale(1.05); }
+.footer-lema p { margin: 30px 0; font-family: 'Montserrat', sans-serif; color: var(--verde-neon); letter-spacing: 3px; font-weight: bold; font-size: 12px; opacity: 0.7; }
+.footer-direitos { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+.footer-direitos p { font-size: 13px; margin-bottom: 5px; color: #556; }
+
+/* =======================================================
+   RESPONSIVIDADE (MOBILE)
+   ======================================================= */
+@media (max-width: 992px) {
+    .grid-3-colunas, .grid-cards, .grid-dignitarios { grid-template-columns: repeat(2, 1fr); }
+    .container-numeros { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+    .nome-loja-hero { font-size: 32px; }
+}
+
+@media (max-width: 768px) {
+    nav, .logos-topo { display: none; }
+    .headline { font-size: 32px; }
+    .nome-loja-hero { font-size: 26px; }
+    .cta-botoes { flex-direction: column; }
+    .grid-3-colunas, .grid-cards, .grid-dignitarios, .container-numeros { grid-template-columns: 1fr; }
+    .titulo-secao { font-size: 28px; padding-top: 40px; }
+    .subtitulo-secao { font-size: 16px; margin-bottom: 30px; padding: 0 15px; }
+}

@@ -281,3 +281,17 @@
         });
     });
 </script>
+<script>
+  (function() {
+    const senhaCorreta = "RioDasPedras3062";
+    const acessoLiberado = sessionStorage.getItem("acesso_liberado");
+    if (!acessoLiberado) {
+      const tentativa = prompt("🔒 Acesso Restrito\n\nInsira a senha para continuar:");
+      if (tentativa !== senhaCorreta) {
+        document.body.innerHTML = "<div style='display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0a1a;color:#c9a227;font-family:serif;font-size:1.5rem;text-align:center;padding:2rem;'>⛔ Acesso negado.<br><br>Esta página é de acesso restrito.<br><br>Solicite a senha ao Venerável Mestre.</div>";
+        return;
+      }
+      sessionStorage.setItem("acesso_liberado", "true");
+    }
+  })();
+</script>
